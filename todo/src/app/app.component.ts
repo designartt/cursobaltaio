@@ -11,6 +11,7 @@ export class AppComponent {
   public todos: any[] = [];
   public title: String = 'Minhas Tarefas';
   public form: FormGroup;
+  public mode: string = 'list';
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -66,8 +67,11 @@ export class AppComponent {
 
   load(){
     const data = localStorage.getItem('todos');
-    // const items = JSON.parse(data);
-    // ou 
+    if(data){
+      this.todos = JSON.parse(data);
+    } else {
+      this.todos = [];
+    }
     this.todos = JSON.parse(data);
   }
 
