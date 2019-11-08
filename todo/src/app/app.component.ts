@@ -22,6 +22,7 @@ export class AppComponent {
       ])]
     });
 
+    //pode ser que isto dê problema!!
     this.load();
     
     // this.todos.push(new Todo(1, 'Passear', false));
@@ -63,6 +64,7 @@ export class AppComponent {
   save() {
     const data = JSON.stringify(this.todos);
     localStorage.setItem('todos', data);
+    this.mode = 'list';
   }
 
   load(){
@@ -72,7 +74,9 @@ export class AppComponent {
     } else {
       this.todos = [];
     }
-    this.todos = JSON.parse(data);
   }
 
+  changeMode(mode: string){
+    this.mode = mode;
+  }
 }
