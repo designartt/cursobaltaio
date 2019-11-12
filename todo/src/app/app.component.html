@@ -1,7 +1,7 @@
 <h1 class="title animated jackInTheBox">Lista de Tarefas</h1>
 
 <ul class="animated flipInX" *ngIf="mode=='list'">
-  <p *ngIf="todos.length==0"><small>Não tem nenhuma tarefa hoje!</small></p>
+  <p class="text-center" *ngIf="todos.length==0"><small>Não tem nenhuma tarefa hoje!</small></p>
   <li *ngFor="let todo of todos">
     <!-- {{ todo.id }}.  -->
     {{ todo.title }} 
